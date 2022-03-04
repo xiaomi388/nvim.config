@@ -21,6 +21,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 "set mouse=a
+set number
 
 " telescope sugar
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
