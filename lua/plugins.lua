@@ -34,6 +34,25 @@ return require('packer').startup(function(use)
   -- golang
   use 'fatih/vim-go'
 
+  -- fuzzy search
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- file tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
+  use 'vim-test/vim-test'
+
+  use 'neomake/neomake'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
