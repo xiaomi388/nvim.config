@@ -10,7 +10,6 @@ augroup end
 " lua config mapping
 lua require('lsp')
 lua require('dap_adapter')
-lua require('dap-go').setup()
 
 filetype plugin indent on
 syntax on
@@ -32,14 +31,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd :lua require'telescope'.extensions.dap.commands{}<CR>
 
 
-" vim-test
-let test#strategy = "neovim"
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
 
 " dap
 nnoremap <silent> <F4> :lua require('dap-go').debug_test()<CR>
@@ -52,6 +43,7 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
+autocmd FileType go          nnoremap <buffer> <leader>t :lua require('dap-go').debug_test()<CR>
 
 " vim-choosewin
 nmap  -  <Plug>(choosewin)

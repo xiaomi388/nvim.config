@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
 
   -- golang
-  use 'fatih/vim-go'
+  use 'ray-x/go.nvim'
 
   -- fuzzy search
   use {
@@ -55,7 +55,6 @@ return require('packer').startup(function(use)
 
   -- debugging
   use 'mfussenegger/nvim-dap'
-  use 'leoluz/nvim-dap-go'
   use 'mfussenegger/nvim-dap-python'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use { 'nvim-telescope/telescope-dap.nvim' }
