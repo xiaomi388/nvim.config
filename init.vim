@@ -10,6 +10,8 @@ augroup end
 " lua config mapping
 lua require('lsp')
 lua require('dap_adapter')
+lua require('treesitter')
+lua require('go_config')
 
 filetype plugin indent on
 syntax on
@@ -48,3 +50,4 @@ autocmd FileType go          nnoremap <buffer> <leader>t :lua require('dap-go').
 " vim-choosewin
 nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
+
