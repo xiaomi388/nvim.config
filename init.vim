@@ -10,7 +10,7 @@ augroup end
 " lua config mapping
 lua require('lsp')
 lua require('dap_adapter')
-lua require('dap-go').setup()
+lua require('treesitter')
 
 filetype plugin indent on
 syntax on
@@ -56,3 +56,4 @@ nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 " vim-choosewin
 nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
+
