@@ -88,3 +88,25 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+
+-- cmp-buffer
+require('cmp').setup({
+  sources = {
+    { name = 'buffer' },
+  },
+})
+
+-- cmp-cmdline
+require'cmp'.setup.cmdline(':', {
+  sources = {
+    { name = 'cmdline' }
+  }
+})
+
+require'cmp'.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+

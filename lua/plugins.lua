@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-buffer'
 
   -- golang
   use 'fatih/vim-go'
@@ -55,11 +57,16 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'leoluz/nvim-dap-go'
   use 'mfussenegger/nvim-dap-python'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { 'nvim-telescope/telescope-dap.nvim' }
 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  -- window management
+  use 't9md/vim-choosewin'
 
 
   -- Automatically set up your configuration after cloning packer.nvim

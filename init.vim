@@ -22,12 +22,14 @@ set shiftwidth=4
 set tabstop=4
 "set mouse=a
 set number
+tnoremap <Esc> <C-\><C-n>
 
 " telescope sugar
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fd :lua require'telescope'.extensions.dap.commands{}<CR>
 
 
 " vim-test
@@ -50,3 +52,7 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
+
+" vim-choosewin
+nmap  -  <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
