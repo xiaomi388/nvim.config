@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- file tree
   use {
@@ -73,6 +74,9 @@ return require('packer').startup(function(use)
   -- auto pair
   --use 'windwp/nvim-autopairs'
   use "steelsojka/pears.nvim"
+
+  -- quickfix list
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
 
   -- Automatically set up your configuration after cloning packer.nvim

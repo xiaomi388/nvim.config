@@ -12,6 +12,7 @@ lua require('lsp')
 lua require('dap_adapter')
 lua require('treesitter')
 lua require('autopair_config')
+lua require('telescope_config')
 
 filetype plugin indent on
 syntax on
