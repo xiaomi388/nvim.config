@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
 
   -- golang
-  use 'ray-x/go.nvim'
+  -- use 'ray-x/go.nvim'
 
   -- fuzzy search
   use {
@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
   -- debugging
   use 'mfussenegger/nvim-dap'
   use 'mfussenegger/nvim-dap-python'
+  use 'leoluz/nvim-dap-go'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use { 'nvim-telescope/telescope-dap.nvim' }
   use 'theHamsta/nvim-dap-virtual-text'
@@ -67,6 +68,11 @@ return require('packer').startup(function(use)
 
   -- window management
   use 't9md/vim-choosewin'
+  use 'simeji/winresizer'
+
+  -- auto pair
+  --use 'windwp/nvim-autopairs'
+  use "steelsojka/pears.nvim"
 
 
   -- Automatically set up your configuration after cloning packer.nvim

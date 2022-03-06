@@ -11,7 +11,7 @@ augroup end
 lua require('lsp')
 lua require('dap_adapter')
 lua require('treesitter')
-lua require('go_config')
+lua require('autopair_config')
 
 filetype plugin indent on
 syntax on
@@ -33,6 +33,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd :lua require'telescope'.extensions.dap.commands{}<CR>
 
 
+" choose win
+nmap - <Plug>(choosewin)
 
 " dap
 nnoremap <silent> <F4> :lua require('dapui').toggle()<CR>
@@ -45,8 +47,5 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
-
-" vim-choosewin
-nmap  -  <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-
+autocmd FileType python          nnoremap <buffer> <leader>t  :lua require('dap-python').test_method()<CR>
+autocmd FileType go          nnoremap <buffer> <leader>t  :lua require('dap-go').debug_test()<CR>
