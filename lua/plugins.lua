@@ -24,6 +24,10 @@ return require('packer').startup(function(use)
 
   -- ui
   use 'folke/tokyonight.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- cmp
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
