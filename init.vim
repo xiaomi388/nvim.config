@@ -52,3 +52,6 @@ nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 autocmd FileType python          nnoremap <buffer> <leader>t  :lua require('dap-python').test_method()<CR>
 autocmd FileType go          nnoremap <buffer> <leader>t  :lua require('dap-go').debug_test()<CR>
 
+" relative number
+:set relativenumber
+:set rnu
