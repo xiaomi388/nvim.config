@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+
   -- window management
   use 't9md/vim-choosewin'
   use 'simeji/winresizer'
