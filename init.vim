@@ -55,3 +55,9 @@ autocmd FileType go          nnoremap <buffer> <leader>t  :lua require('dap-go')
 " relative number
 :set relativenumber
 :set rnu
+
+" close quickfix list shortcut
+augroup vimrcQfClose
+    autocmd!
+    autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
+augroup END
