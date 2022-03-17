@@ -83,6 +83,9 @@ return require('packer').startup(function(use)
   -- quickfix list
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
+  -- outliner
+  use 'simrat39/symbols-outline.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
