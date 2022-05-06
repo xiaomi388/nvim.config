@@ -86,6 +86,9 @@ return require('packer').startup(function(use)
   -- outliner
   use 'simrat39/symbols-outline.nvim'
 
+  -- blamer
+  use 'APZelos/blamer.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
