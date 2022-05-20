@@ -41,6 +41,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig['beancount'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "beancount-language-server", "--stdio" }
+}
+
 
 -- luasnip setup
 local luasnip = require 'luasnip'

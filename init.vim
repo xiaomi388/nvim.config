@@ -64,3 +64,6 @@ augroup END
 
 " outliner shortcut
 nnoremap <C-m> :SymbolsOutline<CR>
+
+" enable project settings
+set exrc
