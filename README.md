@@ -21,5 +21,21 @@ $ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 
 # Mac
 brew install ripgrep
+```
+
+# Nerd Font Issue
+
+on the local mac:
+
+download nerd font:
 
 ```
+$brew tap homebrew/cask-fonts
+$brew install --cask font-hack-nerd-font
+```
+
+set iterm2 to use nerd font:
+
+![image](https://user-images.githubusercontent.com/14134844/173153332-feb12a92-46e3-4134-882b-e4ef3cea9167.png)
+
+
