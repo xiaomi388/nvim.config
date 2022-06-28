@@ -1,6 +1,22 @@
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
+local action_set = require('telescope.actions.set')
+
 require('telescope').setup {
+  -- https://github.com/nvim-telescope/telescope.nvim/issues/559
+  pickers = {
+    find_files = {
+      hidden = true,
+      attach_mappings = function(prompt_bufnr)
+        action_set.select:enhance({
+          post = function()
+            vim.cmd(":normal! zx")
+          end
+        })
+        return true
+      end
+    },
+  },
   extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
@@ -14,3 +30,4 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+

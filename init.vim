@@ -68,3 +68,7 @@ nnoremap <C-j> :SymbolsOutline<CR>
 
 " enable project settings
 set exrc
+
+"folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
