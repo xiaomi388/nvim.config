@@ -3,6 +3,7 @@ require('dapui').setup()
 require("nvim-dap-virtual-text").setup()
 require('dap-go').setup()
 
+
 --require("dapui").setup({
 --  icons = { expanded = "▾", collapsed = "▸" },
 --  mappings = {

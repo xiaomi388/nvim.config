@@ -14,6 +14,7 @@ lua require('treesitter')
 lua require('autopair_config')
 lua require('telescope_config')
 lua require('lualine_config')
+lua require('nvimtree_config')
 
 filetype plugin indent on
 syntax on
