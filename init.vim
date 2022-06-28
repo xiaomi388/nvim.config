@@ -63,7 +63,7 @@ augroup vimrcQfClose
 augroup END
 
 " outliner shortcut
-nnoremap <C-m> :SymbolsOutline<CR>
+nnoremap <C-j> :SymbolsOutline<CR>
 
 " enable project settings
 set exrc
