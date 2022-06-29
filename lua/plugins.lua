@@ -38,7 +38,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
 
   -- golang
-  -- use 'ray-x/go.nvim'
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua'
 
   -- fuzzy search
   use {

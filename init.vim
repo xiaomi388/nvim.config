@@ -15,6 +15,7 @@ lua require('autopair_config')
 lua require('telescope_config')
 lua require('lualine_config')
 lua require('nvimtree_config')
+lua require('go_config')
 
 filetype plugin indent on
 syntax on
@@ -72,3 +73,4 @@ set exrc
 "folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+

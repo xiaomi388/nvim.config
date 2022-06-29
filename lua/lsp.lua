@@ -26,6 +26,8 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   -- dap
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'D', '<cmd>lua require("dapui").eval()<CR>', opts)
+  -- go auto import & format
+  -- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 end
 
 -- Add additional capabilities supported by nvim-cmp

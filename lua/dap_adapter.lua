@@ -1,7 +1,7 @@
 require('dap-python').setup('python3')
 require('dapui').setup()
 require("nvim-dap-virtual-text").setup()
-require('dap-go').setup()
+-- require('dap-go').setup()
 
 
 --require("dapui").setup({
