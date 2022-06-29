@@ -16,6 +16,7 @@ lua require('telescope_config')
 lua require('lualine_config')
 lua require('nvimtree_config')
 lua require('go_config')
+lua require('navigator_config')
 
 filetype plugin indent on
 syntax on
@@ -69,6 +70,7 @@ nnoremap <C-j> :SymbolsOutline<CR>
 
 " enable project settings
 set exrc
+set secure
 
 "folding
 set foldmethod=expr

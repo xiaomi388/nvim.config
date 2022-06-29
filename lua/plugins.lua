@@ -81,13 +81,22 @@ return require('packer').startup(function(use)
   use "steelsojka/pears.nvim"
 
   -- quickfix list
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+  -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
   -- outliner
   use 'simrat39/symbols-outline.nvim'
 
   -- blamer
   use 'APZelos/blamer.nvim'
+
+  -- navigator
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+        { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+        { 'neovim/nvim-lspconfig' },
+    },
+  })
 
 
   -- Automatically set up your configuration after cloning packer.nvim
