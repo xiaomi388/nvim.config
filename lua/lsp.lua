@@ -30,28 +30,6 @@ local on_attach = function(client, bufnr)
   -- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 end
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'clangd', 'gopls', 'golangci_lint_ls' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-lspconfig['beancount'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { "beancount-language-server", "--stdio" }
-}
-
-
 -- luasnip setup
 local luasnip = require 'luasnip'
 
@@ -93,32 +71,52 @@ cmp.setup {
       end
     end,
   },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
+  sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      -- { name = 'vsnip' }, -- For vsnip users.
+      { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
 }
-
-
--- cmp-buffer
-require('cmp').setup({
-  sources = {
-    { name = 'buffer' },
-  },
-})
 
 -- cmp-cmdline
 require'cmp'.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' }
-  }
+   mapping = cmp.mapping.preset.cmdline(),
+   sources = cmp.config.sources({
+     { name = 'path' }
+   }, {
+     { name = 'cmdline' }
+   })
 })
 
 require'cmp'.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
   }
 })
+
+-- setup lspconfig
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local lspconfig = require('lspconfig')
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'clangd', 'gopls', 'golangci_lint_ls' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+lspconfig['beancount'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "beancount-language-server", "--stdio" }
+}
+
+
 
 
 -- set icons

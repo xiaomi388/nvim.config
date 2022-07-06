@@ -76,3 +76,6 @@ set secure
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
+
+"ssh remote clipboard shortcut (OSCYank)
+vnoremap <leader>c :OSCYank<CR>
