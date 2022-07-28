@@ -14,16 +14,18 @@ lua require('treesitter')
 lua require('autopair_config')
 lua require('telescope_config')
 lua require('lualine_config')
+lua require('lua_lines_config')
 lua require('nvimtree_config')
 lua require('go_config')
 lua require('navigator_config')
+lua require('harpoon_config')
 
 filetype plugin indent on
 syntax on
 colorscheme tokyonight
 
 " Tabs size
-set expandtab
+"set expandtab
 set shiftwidth=4
 set tabstop=4
 "set mouse=a
@@ -35,6 +37,9 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fm <cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>m <cmd>lua require("harpoon.mark").toggle_file()<CR>
 nnoremap <leader>fd :lua require'telescope'.extensions.dap.commands{}<CR>
 
 
@@ -79,3 +84,6 @@ set foldexpr=nvim_treesitter#foldexpr()
 
 "ssh remote clipboard shortcut (OSCYank)
 vnoremap <leader>c :OSCYank<CR>
+
+" auto reload current buffer
+set autoread

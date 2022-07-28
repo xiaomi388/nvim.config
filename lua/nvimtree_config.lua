@@ -3,7 +3,8 @@ require('nvim-tree').setup({
       preserve_window_proportions = true,
       mappings = {
           list = {
-              { key = "<C-e>", action = ""}
+              { key = "<C-e>", action = ""},
+              { key = "-", action = ""}
           }
       }
   }

@@ -4,6 +4,12 @@ local action_set = require('telescope.actions.set')
 
 require('telescope').setup {
   -- https://github.com/nvim-telescope/telescope.nvim/issues/559
+  defaults = {
+	  dynamic_preview_title = true,
+	  path_display = {
+		  "truncate"
+	  }
+  },
   pickers = {
     find_files = {
       hidden = true,

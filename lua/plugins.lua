@@ -98,13 +98,25 @@ return require('packer').startup(function(use)
     },
   })
 
+  -- better diagnostics visual text
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
+
   -- clipboard through ssh
   use 'ojroques/vim-oscyank'
 
+  -- harpoon for marking files
+  use 'nvim-lua/plenary.nvim' 
+  use 'ThePrimeagen/harpoon'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
+
 end)
