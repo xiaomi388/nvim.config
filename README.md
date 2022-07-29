@@ -25,7 +25,7 @@ brew install ripgrep
 
 # Nerd Font Issue
 
-on the local mac:
+Only needed at the local machine:
 
 download nerd font:
 

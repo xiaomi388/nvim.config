@@ -116,9 +116,6 @@ lspconfig['beancount'].setup {
     cmd = { "beancount-language-server", "--stdio" }
 }
 
-
-
-
 -- set icons
  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
  for type, icon in pairs(signs) do
