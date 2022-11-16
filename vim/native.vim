@@ -31,3 +31,6 @@ set foldexpr=nvim_treesitter#foldexpr()
 
 " auto reload current buffer
 set autoread
+
+"mosh color
+"set notermguicolors

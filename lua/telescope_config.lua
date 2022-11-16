@@ -12,7 +12,6 @@ require('telescope').setup {
   },
   pickers = {
     find_files = {
-      hidden = true,
       attach_mappings = function(prompt_bufnr)
         action_set.select:enhance({
           post = function()

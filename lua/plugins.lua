@@ -126,6 +126,15 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- diff view
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- alternate files
+  use 'rgroli/other.nvim'
+
+  -- yaml foldding
+  use 'pedrohdz/vim-yaml-folds'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

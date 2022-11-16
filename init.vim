@@ -16,4 +16,3 @@ EOF
 for f in split(glob("$HOME/.config/nvim/vim/*.vim"), '\n')
     exe 'source' f
 endfor
-
