@@ -39,3 +39,13 @@ set iterm2 to use nerd font:
 ![image](https://user-images.githubusercontent.com/14134844/173153332-feb12a92-46e3-4134-882b-e4ef3cea9167.png)
 
 
+# Dracula
+
+Iterm2, Tmux, powerlevel10k
+
+https://draculatheme.com/
+
+# powerlevel10k
+
+https://github.com/romkatv/powerlevel10k
+
