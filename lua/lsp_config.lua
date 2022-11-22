@@ -103,7 +103,7 @@ require'cmp'.setup.cmdline('/', {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'clangd', 'gopls', 'golangci_lint_ls' }
+local servers = { 'rust_analyzer', 'tsserver', 'clangd', 'gopls', 'golangci_lint_ls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -113,6 +113,9 @@ end
 lspconfig['beancount'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+	init_options = {
+        journal_file = "~/Documents/Ledger/main.beancount",
+    },
     cmd = { "beancount-language-server", "--stdio" }
 }
 

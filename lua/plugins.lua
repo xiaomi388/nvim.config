@@ -113,6 +113,9 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim' 
   use 'ThePrimeagen/harpoon'
 
+  -- Obsidian
+  use 'epwalsh/obsidian.nvim'
+
   -- trouble vim
   use {
     "folke/trouble.nvim",
