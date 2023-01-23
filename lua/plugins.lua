@@ -135,6 +135,10 @@ return require('packer').startup(function(use)
   -- yaml foldding
   use 'pedrohdz/vim-yaml-folds'
 
+  -- bookmark
+  use 'MattesGroeger/vim-bookmarks'
+  use 'tom-anders/telescope-vim-bookmarks.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
