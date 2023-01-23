@@ -5,6 +5,15 @@ local action_set = require('telescope.actions.set')
 require('telescope').setup {
   -- https://github.com/nvim-telescope/telescope.nvim/issues/559
   defaults = {
+	  vimgrep_arguments = {
+		  "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--ignore-case"
+	  },
 	  dynamic_preview_title = true,
 	  path_display = {
 		  "truncate"
