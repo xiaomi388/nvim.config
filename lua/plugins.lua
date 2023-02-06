@@ -78,8 +78,8 @@ return require('packer').startup(function(use)
   use 'simeji/winresizer'
 
   -- auto pair
-  --use 'windwp/nvim-autopairs'
-  use "steelsojka/pears.nvim"
+  use 'windwp/nvim-autopairs'
+  --use "steelsojka/pears.nvim"
 
   -- quickfix list
   -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
@@ -139,6 +139,11 @@ return require('packer').startup(function(use)
   -- bookmark
   use 'MattesGroeger/vim-bookmarks'
   use 'tom-anders/telescope-vim-bookmarks.nvim'
+
+  -- for getting hint when typing out a function
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -1,3 +1,8 @@
+local cwd = io.popen("pwd"):read("*all")
+if string.find(cwd, "google3") then
+	do return end
+end
+
 require('go').setup({
     verbose = true,
     log_path = vim.fn.expand("$HOME") .. "/tmp/gonvim.log",
