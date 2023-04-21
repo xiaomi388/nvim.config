@@ -2,7 +2,7 @@ local cwd = io.popen("pwd"):read("*all")
 if string.find(cwd, "google3") then
 	require'navigator'.setup({
 		lsp = {
-			disply_diagnostic_qf = false,
+			display_diagnostic_qf = false,
 			diagnostic = {
 				virtual_text = false
 			},
@@ -13,7 +13,7 @@ if string.find(cwd, "google3") then
 else
 	require'navigator'.setup({
 		lsp = {
-			disply_diagnostic_qf = false,
+			display_diagnostic_qf = false,
 			diagnostic = {
 				virtual_text = false
 			}

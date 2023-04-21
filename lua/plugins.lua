@@ -13,9 +13,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Simple plugins can be specified as strings
-  use 'rstacruz/vim-closer'
-
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
 
@@ -26,7 +23,6 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- cmp
@@ -50,10 +46,7 @@ return require('packer').startup(function(use)
 
   -- file tree
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    }
+    'nvim-tree/nvim-tree.lua',
   }
 
   use 'vim-test/vim-test'
@@ -80,6 +73,9 @@ return require('packer').startup(function(use)
   -- auto pair
   use 'windwp/nvim-autopairs'
   --use "steelsojka/pears.nvim"
+  -- Simple plugins can be specified as strings
+  -- use 'rstacruz/vim-closer'
+
 
   -- quickfix list
   -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
@@ -117,7 +113,6 @@ return require('packer').startup(function(use)
   -- trouble vim
   use {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup {
         -- your configuration comes here
@@ -137,13 +132,28 @@ return require('packer').startup(function(use)
   use 'pedrohdz/vim-yaml-folds'
 
   -- bookmark
-  use 'MattesGroeger/vim-bookmarks'
-  use 'tom-anders/telescope-vim-bookmarks.nvim'
+  -- use 'MattesGroeger/vim-bookmarks'
+  -- use 'tom-anders/telescope-vim-bookmarks.nvim'
+
+  use 'ldelossa/litee.nvim'
+  use 'ldelossa/litee-bookmarks.nvim'
 
   -- for getting hint when typing out a function
   use {
     "ray-x/lsp_signature.nvim",
   }
+
+  -- filemanager
+  use {
+    'stevearc/oil.nvim',
+    config = function() require('oil').setup() end
+  }
+  use 'nvim-tree/nvim-web-devicons'
+
+  -- don't push me
+  use 'sso://googler@user/vintharas/telescope-codesearch.nvim'
+  use 'sso://googler@user/jackcogdill/nvim-figtree'
+  use 'sso://googler@user/aktau/telescope-citc.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
