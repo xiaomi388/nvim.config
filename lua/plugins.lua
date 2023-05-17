@@ -35,7 +35,17 @@ return require('packer').startup(function(use)
 
   -- golang
   use 'ray-x/go.nvim'
+
+  -- gui
   use 'ray-x/guihua.lua'
+  -- gui navigator for showing refernece, definition, and so on
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+        { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+        { 'neovim/nvim-lspconfig' },
+    },
+  })
 
   -- fuzzy search
   use {
@@ -56,7 +66,7 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap-python'
   use 'leoluz/nvim-dap-go'
   -- FIXME: reenable this plugin after it is fixed
-  -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use { 'nvim-telescope/telescope-dap.nvim' }
   use 'theHamsta/nvim-dap-virtual-text'
 
@@ -67,8 +77,8 @@ return require('packer').startup(function(use)
 
 
   -- window management
-  use 't9md/vim-choosewin'
-  use 'simeji/winresizer'
+  -- use 't9md/vim-choosewin'
+  -- use 'simeji/winresizer'
 
   -- auto pair
   use 'windwp/nvim-autopairs'
@@ -86,29 +96,21 @@ return require('packer').startup(function(use)
   -- blamer
   use 'APZelos/blamer.nvim'
 
-  -- navigator
-  use({
-    'ray-x/navigator.lua',
-    requires = {
-        { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-        { 'neovim/nvim-lspconfig' },
-    },
-  })
-
   -- better diagnostics visual text
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  })
+  -- not use because navigator.nvim can handle this
+  -- use({
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --   end,
+  -- })
 
   -- clipboard through ssh
   use 'ojroques/vim-oscyank'
 
   -- harpoon for marking files
-  use 'nvim-lua/plenary.nvim' 
-  use 'ThePrimeagen/harpoon'
+  -- use 'nvim-lua/plenary.nvim' 
+  -- use 'ThePrimeagen/harpoon'
 
   -- trouble vim
   use {
@@ -125,30 +127,30 @@ return require('packer').startup(function(use)
   -- diff view
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-  -- alternate files
-  use 'rgroli/other.nvim'
+  -- open alternate files
+  -- disabled because it's hard to define the "other" files
+  -- use 'rgroli/other.nvim'
 
   -- yaml foldding
   use 'pedrohdz/vim-yaml-folds'
 
   -- bookmark
-  -- use 'MattesGroeger/vim-bookmarks'
-  -- use 'tom-anders/telescope-vim-bookmarks.nvim'
-
   use 'ldelossa/litee.nvim'
   use 'ldelossa/litee-bookmarks.nvim'
+  -- use 'MattesGroeger/vim-bookmarks'
+  -- use 'tom-anders/telescope-vim-bookmarks.nvim'
 
   -- for getting hint when typing out a function
   use {
     "ray-x/lsp_signature.nvim",
   }
 
-  -- filemanager
-  use {
-    'stevearc/oil.nvim',
-    config = function() require('oil').setup() end
-  }
-  use 'nvim-tree/nvim-web-devicons'
+  -- network filemanager
+  -- use {
+  --   'stevearc/oil.nvim',
+  --   config = function() require('oil').setup() end
+  -- }
+  -- use 'nvim-tree/nvim-web-devicons'
 
   -- don't push me
   use 'sso://googler@user/vintharas/telescope-codesearch.nvim'
