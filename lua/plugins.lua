@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
 
   -- window management
   -- use 't9md/vim-choosewin'
-  -- use 'simeji/winresizer'
+  use 'simeji/winresizer'
 
   -- auto pair
   use 'windwp/nvim-autopairs'

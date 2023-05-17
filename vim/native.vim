@@ -34,3 +34,12 @@ set autoread
 
 "mosh color
 "set notermguicolors
+
+" Switch to the previous buffer
+function! SwitchToPreviousBuffer()
+    let previous_buffer = bufnr('#')
+    execute 'buffer ' . previous_buffer
+endfunction
+
+" Create a custom mapping to trigger the function
+nnoremap <C-p> :call SwitchToPreviousBuffer()<CR>
