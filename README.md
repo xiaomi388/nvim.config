@@ -49,3 +49,14 @@ https://draculatheme.com/
 
 https://github.com/romkatv/powerlevel10k
 
+# Tmux
+
+follow https://github.com/tmux-plugins/tpm to install and run tpm
+
+In mac, to fix delete key not working, run: 
+
+```
+brew install ncurses
+$(brew --prefix)/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
+tic -xe tmux-256color ~/tmux-256color.info`
+```
