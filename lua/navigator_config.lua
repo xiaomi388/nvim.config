@@ -14,6 +14,7 @@ else
 	require'navigator'.setup({
 		lsp = {
 			display_diagnostic_qf = false,
+			disable_lsp = {'gopls'},
 			diagnostic = {
 				virtual_text = false
 			}
