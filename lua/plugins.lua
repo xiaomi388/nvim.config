@@ -115,6 +115,7 @@ return require('packer').startup(function(use)
   -- trouble vim
   use {
     "folke/trouble.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("trouble").setup {
         -- your configuration comes here
@@ -150,7 +151,7 @@ return require('packer').startup(function(use)
   --   'stevearc/oil.nvim',
   --   config = function() require('oil').setup() end
   -- }
-  -- use 'nvim-tree/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
 
   -- don't push me
   use 'sso://googler@user/vintharas/telescope-codesearch.nvim'
