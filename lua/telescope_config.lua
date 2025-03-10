@@ -45,4 +45,12 @@ require('telescope').setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 --require('telescope').load_extension('vim_bookmarks')
+require("telescope").load_extension("git_worktree")
 
+
+vim.api.nvim_create_user_command("LiveGrepInDir", function(opts)
+  local dir = opts.args ~= "" and opts.args or vim.fn.expand("%:p:h")
+  require("telescope").extensions.live_grep_args.live_grep_args({
+    cwd = dir
+  })
+end, { nargs = "?" })
