@@ -48,37 +48,13 @@ if string.find(cwd, "google3") then
     }
   end
 else
-  local servers = { 'rust_analyzer', 'ts_ls', 'clangd', 'golangci_lint_ls', 'pyright' }
+  local servers = { 'rust_analyzer', 'ts_ls', 'clangd', 'golangci_lint_ls', 'pyright', 'gopls' }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
     }
   end
-  
-  lspconfig['gopls'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      gopls = {
-  		["local"] = "gke-internal.googlesource.com",
-  		directoryFilters = {
-              "-**/node_modules", -- Ignore node_modules at any depth.
-              -- These contain no Go code.
-              "-ansible",
-              "-asset-mgmt",
-              "-frontend",
-              "-owners",
-              "-sbom",
-              -- There is no globbing, so we have to exclude bazel directories manually.
-              "-bazel-bin",
-              "-bazel-out",
-              "-bazel-private-cloud",
-              "-bazel-testlogs"
-  		}
-  	}
-    }
-  }
   
   lspconfig['beancount'].setup {
       on_attach = on_attach,
