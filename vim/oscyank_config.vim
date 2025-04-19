@@ -1,3 +1,3 @@
 "ssh remote clipboard shortcut (OSCYank)
-vnoremap <leader>c :OSCYankVisual<CR>
+vnoremap <leader>c "+y
 let g:oscyank_term = 'default'
