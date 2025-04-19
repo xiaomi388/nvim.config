@@ -54,12 +54,12 @@ cmp.setup {
 require'cmp'.setup.cmdline(':', {
    mapping = cmp.mapping.preset.cmdline(),
    sources = cmp.config.sources({
-     { name = 'path' }
+     { name = 'path' },
    }, {
      { 
 		 name = 'cmdline',
 		 option = {
-            ignore_cmds = { 'Man', '!', 'GoCoverage' }
+            ignore_cmds = { 'Man', '!', 'GoCoverage', "GoImpl" }
          }
 	 }
    })

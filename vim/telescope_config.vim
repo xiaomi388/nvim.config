@@ -11,11 +11,12 @@ else
 	nnoremap <leader>fw <cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>
 endif
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope frecency workspace=CWD<cr>
 nnoremap <leader>fg <cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fj <cmd>Telescope jumplist<cr>
 nnoremap <leader>fs <cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>
+nnoremap <leader>fa <cmd>GoAlt<cr>
 

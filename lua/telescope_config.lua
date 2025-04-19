@@ -16,7 +16,7 @@ require('telescope').setup {
 	  },
 	  dynamic_preview_title = true,
 	  path_display = {
-		  "truncate"
+		  "smart"
 	  }
   },
   pickers = {
