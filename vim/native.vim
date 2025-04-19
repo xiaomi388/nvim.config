@@ -28,6 +28,7 @@ set secure
 "folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+set foldmethod=manual
 
 " auto reload current buffer
 set autoread

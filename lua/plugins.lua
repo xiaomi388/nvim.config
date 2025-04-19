@@ -60,6 +60,12 @@ return require('packer').startup(function(use)
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {
+	  "nvim-telescope/telescope-frecency.nvim",
+	  config = function()
+		  require("telescope").load_extension("frecency")
+	  end
+  }
 
   -- file tree
   use {
@@ -174,6 +180,7 @@ return require('packer').startup(function(use)
     	  'nvim-lua/plenary.nvim'
       }
   }
+  use "sso://googler@user/vintharas/avante-goose.nvim"
 
   -- use {
   --   'kiddos/gemini.nvim',
@@ -213,6 +220,16 @@ return require('packer').startup(function(use)
     'ggandor/leap.nvim',
     dependencies = { "tpope/vim-repeat" }
   }
+
+  use 'yorickpeterse/nvim-window'
+
+  use({
+    "andythigpen/nvim-coverage",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("coverage").setup()
+    end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
