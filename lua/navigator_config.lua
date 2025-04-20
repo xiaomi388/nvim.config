@@ -18,7 +18,14 @@ else
 			diagnostic = {
 				virtual_text = false
 			}
-		}	
+		},
+		icons = {
+			icons = true,
+			diagnostic_warn = "",
+			diagnostic_hint = "",
+			diagnostic_err = "",
+			diagnostic_info = "",
+		}
 	})
 end
 
