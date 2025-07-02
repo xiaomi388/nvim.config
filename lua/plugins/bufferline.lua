@@ -1,0 +1,77 @@
+local MAX_RECENT = 5        -- ← pick any limit you like
+
+return {
+  "akinsho/bufferline.nvim",
+  version = "*",
+  dependencies = "nvim-tree/nvim-web-devicons",
+  event = "VeryLazy",
+  keys = {
+    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
+    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
+    { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete Buffers to the Right" },
+    { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete Buffers to the Left" },
+    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+    { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+    { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+    { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
+    { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
+  },
+  opts = {
+    options = {
+      -- stylua: ignore
+      close_command = function(n) Snacks.bufdelete(n) end,
+      -- stylua: ignore
+      right_mouse_command = function(n) Snacks.bufdelete(n) end,
+      diagnostics = "nvim_lsp",
+      always_show_bufferline = false,
+      offsets = {
+        {
+          filetype = "neo-tree",
+          text = "Neo-tree",
+          highlight = "Directory",
+          text_align = "left",
+        },
+        {
+          filetype = "snacks_layout_box",
+        },
+      },
+
+      custom_filter = function(bufnr, _)
+        -- Always keep pinned buffers (BufferLineTogglePin)
+        local ok, state = pcall(require("bufferline.state").get)  -- safe in ≥v4
+        if ok and state.pinned and state.pinned[bufnr] then
+          return true
+        end
+
+        -- Build an MRU-sorted list of *listed* buffers
+        local listed = vim.tbl_filter(
+          function(b) return vim.fn.buflisted(b) == 1 end,
+          vim.api.nvim_list_bufs()
+        )
+        table.sort(listed, function(x, y)
+          return vim.fn.getbufinfo(x)[1].lastused > vim.fn.getbufinfo(y)[1].lastused
+        end)
+
+        -- Keep only the first MAX_RECENT items
+        for i = 1, math.min(MAX_RECENT, #listed) do
+          if listed[i] == bufnr then
+            return true
+          end
+        end
+        return false
+      end,
+    },
+  },
+  config = function(_, opts)
+    require("bufferline").setup(opts)
+    -- Fix bufferline when restoring a session
+    vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
+      callback = function()
+        vim.schedule(function()
+          pcall(nvim_bufferline)
+        end)
+      end,
+    })
+  end,
+}
