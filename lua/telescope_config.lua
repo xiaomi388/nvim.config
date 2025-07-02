@@ -38,7 +38,7 @@ require('telescope').setup {
       override_file_sorter = true,     -- override the file sorter
       case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
-    }
+    },
   }
 }
 -- To get fzf loaded and working with telescope, you need to call
@@ -47,6 +47,12 @@ require('telescope').load_extension('fzf')
 --require('telescope').load_extension('vim_bookmarks')
 require("telescope").load_extension("git_worktree")
 
+require("telescope").load_extension("frecency")
+
+require("frecency.config").setup {
+  auto_validate = true,
+  ignore_patterns = { "*/.git", "*/.git/*", "*/.DS_Store", "bazel-*/*", "*/vendor/*", "*/third_party/*" },
+}
 
 vim.api.nvim_create_user_command("LiveGrepInDir", function(opts)
   local dir = opts.args ~= "" and opts.args or vim.fn.expand("%:p:h")

@@ -7,7 +7,6 @@ if string.find(cwd, "google3") then
 				virtual_text = false
 			},
 			disable_lsp = 'all',
-			servers = {'ciderlsp'}
 		}	
 	})
 else

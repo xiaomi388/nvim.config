@@ -60,12 +60,7 @@ return require('packer').startup(function(use)
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {
-	  "nvim-telescope/telescope-frecency.nvim",
-	  config = function()
-		  require("telescope").load_extension("frecency")
-	  end
-  }
+  use { "nvim-telescope/telescope-frecency.nvim" }
 
   -- file tree
   use {
@@ -203,7 +198,7 @@ return require('packer').startup(function(use)
   -- Avante.nvim with build process
   use {
     'yetone/avante.nvim',
-    branch = 'main',
+    branch = 'main', -- fix/compatible-with-gemini',
     run = 'make',
     config = function()
       require('avante_lib').load()
