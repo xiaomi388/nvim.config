@@ -11,7 +11,8 @@ else
 	nnoremap <leader>fw <cmd>lua require('telescope').extensions.git_worktree.git_worktree()<cr>
 endif
 
-nnoremap <leader>ff <cmd>Telescope frecency workspace=CWD<cr>
+"nnoremap <leader>ff <cmd>Telescope frecency workspace=CWD<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
