@@ -1,0 +1,5 @@
+plugin/
+google.vim
+google.lua
+lua/plugins/google/
+lua/config/google/
