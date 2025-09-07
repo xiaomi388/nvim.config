@@ -18,6 +18,18 @@ return {
     local opts = {
       provider = "gemini",
       providers = {
+        ---@type AvanteSupportedProvider
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model = "gpt-5",
+          timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+          context_window = 128000, -- Number of tokens to send to the model for context
+          extra_request_body = {
+			temperature = 1,
+            max_completion_tokens = 16384, -- Increase this to include reasoning tokens (for reasoning models)
+            reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+          },
+        },
         gemini = {
           model = "gemini-2.5-flash",
           model_names = {
@@ -85,6 +97,12 @@ return {
         },
       },
     }
+
+	local provider = vim.env.AVANTE_PROVIDER
+	if provider then
+		print("MY_ENV_VAR is set: " .. provider)
+		opts.provider = provider
+	end
 
     -- Example: Check if the project path contains a specific folder name
     -- local cwd = io.popen("pwd"):read("*all")
