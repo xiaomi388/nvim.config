@@ -23,11 +23,50 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
+  spec = (function()
     -- import your plugins
-    { import = "plugins" },
-    { import = "plugins.google" },
-  },
+    local specs = {}
+    local function module_exists(name)
+      -- Detect Lua modules on the runtimepath, including directories without init.lua
+      -- e.g., lua/plugins/*.lua should be treated as a module "plugins" for lazy's import
+      local sep_name = name:gsub("%.", "/")
+
+      -- 1) Direct module files or init.lua in a folder
+      local candidates = {
+        "lua/" .. sep_name .. ".lua",
+        "lua/" .. sep_name .. "/init.lua",
+      }
+      for _, pat in ipairs(candidates) do
+        local files = vim.api.nvim_get_runtime_file(pat, true)
+        if files and #files > 0 then
+          return true
+        end
+      end
+
+      -- 2) Any Lua files inside the module directory (e.g. lua/plugins/*.lua)
+      local dir_glob = "lua/" .. sep_name .. "/*.lua"
+      local dir_files = vim.api.nvim_get_runtime_file(dir_glob, true)
+      if dir_files and #dir_files > 0 then
+        return true
+      end
+
+      -- 3) Fallback to Lua/C search paths for completeness
+      if package.searchpath(name, package.path) then
+        return true
+      end
+      if package.searchpath(name, package.cpath) then
+        return true
+      end
+      return false
+    end
+    if module_exists("plugins") then
+      table.insert(specs, { import = "plugins" })
+    end
+    if module_exists("plugins.google") then
+      table.insert(specs, { import = "plugins.google" })
+    end
+    return specs
+  end)(),
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "tokyonight" } },

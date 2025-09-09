@@ -1,6 +1,6 @@
 " native.vim contains native vim settings
 syntax on
-colorscheme tokyonight
+silent! colorscheme tokyonight
 
 " Tabs size
 "set expandtab
