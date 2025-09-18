@@ -11,6 +11,7 @@ return {
     -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
     -- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { noremap = true, silent = true })
     vim.keymap.set("n", "gL", vim.diagnostic.open_float, { noremap = true, silent = true })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 
     -- local on_attach = function(client, bufnr)
     --   local bufopts = { noremap = true, silent = true, buffer = bufnr }
