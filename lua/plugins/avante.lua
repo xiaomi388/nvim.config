@@ -48,7 +48,11 @@ return {
         ---@type AvanteSupportedProvider
         vertex_claude = {
           endpoint = "https://us-east5-aiplatform.googleapis.com/v1/projects/yufanchen-rjl23p/locations/global/publishers/antrhopic/models",
-          model = "claude-opus-4-1",
+          model_names = {
+            "claude-sonnet-4-5",
+            "claude-opus-4-1",
+          },
+          model = "claude-sonnet-4-5", -- "claude-opus-4-1",
           timeout = 30000, -- Timeout in milliseconds
           extra_request_body = {
             temperature = 0.75,
