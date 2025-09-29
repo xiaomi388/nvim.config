@@ -16,7 +16,7 @@ return {
 
     -- Default options
     local opts = {
-      provider = "gemini",
+      provider = "vertex_claude",
       providers = {
         ---@type AvanteSupportedProvider
         openai = {
@@ -25,7 +25,7 @@ return {
           timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
           context_window = 128000, -- Number of tokens to send to the model for context
           extra_request_body = {
-			temperature = 1,
+            temperature = 1,
             max_completion_tokens = 16384, -- Increase this to include reasoning tokens (for reasoning models)
             reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
           },
@@ -45,12 +45,13 @@ return {
             },
           },
         },
-        claude = {
-          endpoint = "https://api.anthropic.com",
-          model = "claude-3-sonnet-20240229",
-          timeout = 30000,
+        ---@type AvanteSupportedProvider
+        vertex_claude = {
+          endpoint = "https://us-east5-aiplatform.googleapis.com/v1/projects/yufanchen-rjl23p/locations/global/publishers/antrhopic/models",
+          model = "claude-opus-4-1",
+          timeout = 30000, -- Timeout in milliseconds
           extra_request_body = {
-            temperature = 0.3,
+            temperature = 0.75,
             max_tokens = 20480,
           },
         },
@@ -98,11 +99,11 @@ return {
       },
     }
 
-	local provider = vim.env.AVANTE_PROVIDER
-	if provider then
-		print("MY_ENV_VAR is set: " .. provider)
-		opts.provider = provider
-	end
+    local provider = vim.env.AVANTE_PROVIDER
+    if provider then
+      print("MY_ENV_VAR is set: " .. provider)
+      opts.provider = provider
+    end
 
     -- Example: Check if the project path contains a specific folder name
     -- local cwd = io.popen("pwd"):read("*all")
