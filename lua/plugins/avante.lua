@@ -47,7 +47,10 @@ return {
         },
         ---@type AvanteSupportedProvider
         vertex_claude = {
-          endpoint = "https://us-east5-aiplatform.googleapis.com/v1/projects/yufanchen-rjl23p/locations/global/publishers/antrhopic/models",
+          endpoint = string.format(
+            "https://us-east5-aiplatform.googleapis.com/v1/projects/%s/locations/global/publishers/antrhopic/models",
+            vim.env.ANTHROPIC_VERTEX_PROJECT_ID
+          ),
           model_names = {
             "claude-sonnet-4-5",
             "claude-opus-4-1",
