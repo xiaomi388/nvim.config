@@ -1,5 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
+  enabled = false,
   dependencies = {
     'mfussenegger/nvim-dap-python',
     'leoluz/nvim-dap-go',
