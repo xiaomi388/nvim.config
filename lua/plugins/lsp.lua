@@ -29,7 +29,6 @@ return {
     -- end
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local lspconfig = require("lspconfig")
 
     -- Setup servers based on current directory
     local cwd = vim.fn.getcwd()
@@ -49,10 +48,10 @@ return {
           },
         }
       end
-      lspconfig[server_name].setup(server_opts)
+      vim.lsp.enable(server_name, server_opts)
     end
 
-    lspconfig.beancount.setup({
+    vim.lsp.enable("beancount", {
       capabilities = capabilities,
       init_options = {
         journal_file = vim.fn.expand("~/Documents/Ledger/main.beancount"),
