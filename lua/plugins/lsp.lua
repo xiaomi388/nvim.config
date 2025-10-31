@@ -36,7 +36,7 @@ return {
       return
     end
 
-    local servers = { "rust_analyzer", "tsserver", "clangd", "golangci_lint_ls", "pyright", "gopls", "stylua" }
+    local servers = { "rust_analyzer", "tsserver", "clangd", "golangci_lint_ls", "pyright", "gopls", "stylua", "marksman" }
     for _, server_name in ipairs(servers) do
       local server_opts = {
         capabilities = capabilities,
